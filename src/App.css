@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+
+.grid-parent {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fit,minmax(100px,1fr));*/
+  /*grid-template-columns: min-content min-content min-content min-content;*/
+  /*grid-template-columns: max-content max-content max-content max-content;*/
+  grid-template-columns: repeat(11,minmax(0,1fr));
+  grid-template-rows:  1fr 29fr;
+ /* grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  grid-auto-rows: 100px;*/
+
+  /*height: 100vh;*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-item {
+  background-color: yellow;
+}
+.color-c { 
+  grid-column: 4;
+}
+.color-o {
+  grid-column: 5;
+}
+.color-l {
+  grid-column: 6;
+}
+.color-o2 {
+  grid-column: 7;
+}
+.color-r {
+  grid-column: 8;
+}
+.para-container {
+  display:  flex;
+  /*flex-wrap: wrap;*/
+  flex-direction: row;
+  grid-row: 2;
+  grid-column: 3 / span 7;
+  /*justify-self: center;*/
+  align-self:  center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.para-1{
+  background-color: red;
+  flex-basis:  0;
+  flex-grow:  1;
+}
+.para-2{
+ background-color: blue; 
+ flex-basis:  0;
+ flex-grow:  1;
+}
+.para-3{
+  background-color: cyan;
+  flex-basis:  0;
+  flex-grow:  1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-parent {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex-item {
+  background-color: green;
+  flex-grow: 1;
 }
