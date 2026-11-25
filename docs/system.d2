@@ -1,0 +1,48 @@
+# react-qualia — a CSS grid and flex lab, not an app: you edit one line to switch experiments
+# Strokes only (no fills) so the light and dark diagram themes both stay readable.
+direction: right
+grid-columns: 2
+grid-rows: 2
+
+classes: {
+  entry: {style: {stroke: "#4f9cf9"; stroke-width: 2}}
+  core: {style: {stroke: "#9a7cf9"}}
+  state: {style: {stroke: "#e0a44a"}}
+  ext: {style: {stroke: "#6ac48a"; stroke-dash: 4}}
+  store: {style: {stroke: "#e0a44a"; stroke-width: 2}}
+}
+
+entry: Entry points {
+  direction: down
+  html: "index.html · untouched Vite scaffold, #root plus a module script" {class: entry}
+  main: "src/main.jsx · createRoot, mounts App, imports index.css" {class: entry}
+  pkg: "package.json · react 18 and vite 4 only, no router and no deploy step" {class: entry}
+}
+
+state: Styles and leftovers {
+  direction: down
+  grid-columns: 2
+  appcss: "App.css · the notebook: auto-fit, min-content and max-content column tries left commented out" {class: store}
+  indexcss: "index.css · Vite defaults, dark scheme, body at 320 px minimum and 100vh tall" {class: store}
+  unused: "src/assets/react.svg and public/vite.svg · scaffold files that nothing references" {class: store; shape: cylinder}
+  readme: "README.md · the text test2, so this diagram is the documentation" {class: store}
+}
+
+core: Core {
+  direction: down
+  mode: "App.jsx · let mode = grid, so switching layout means editing the source and reloading" {class: core}
+  gridbranch: "grid branch · 11 equal columns, the letters take 4 to 8, the paragraph row spans 3 to 10" {class: core}
+  flexbranch: "flex branch · four flex items in one row, unreachable while mode is grid" {class: core}
+  longword: "para-2 · one unbroken word, flex-basis 0 with no min-width 0, so its min-content floor beats the 1fr share" {class: core}
+  logo: "App.jsx · imports ./logo.svg, deleted in commit 4343d16, so the module graph no longer resolves" {class: core}
+}
+
+external: External {
+  direction: down
+  vite: "Vite dev server · no routes, no data, no fetches once the page is up" {class: ext}
+  nowhere: "no deploy step · the repo has no build output published and no remote host" {class: ext}
+}
+
+entry -> core
+core -> state
+core -> external
